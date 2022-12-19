@@ -1,4 +1,4 @@
-package routes
+package router
 
 import (
 	"net/http"
@@ -7,7 +7,7 @@ import (
 	user "github.com/m-moo/k8s-plat/controllers/user"
 )
 
-func init() {
+func Init() {
 	router := gin.Default()
 	api := router.Group("/api")
 	{
