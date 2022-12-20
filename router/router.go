@@ -5,6 +5,8 @@ import (
 
 	"github.com/gin-gonic/gin"
 	user "github.com/m-moo/k8s-plat/controllers/user"
+	swaggerfiles "github.com/swaggo/files"
+	swagger "github.com/swaggo/gin-swagger"
 )
 
 func Init() {
@@ -16,5 +18,7 @@ func Init() {
 	router.NoRoute(func(ctx *gin.Context) {
 		ctx.AbortWithStatus(http.StatusNotFound)
 	})
+
+	router.GET("/swagger/*any", swagger.WrapHandler(swaggerfiles.Handler))
 	router.Run(":5000")
 }
