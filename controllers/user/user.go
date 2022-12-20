@@ -8,7 +8,7 @@ import "github.com/gin-gonic/gin"
 //	@Summary	get user example
 //	@Schemes
 //	@Description	get user
-//	@Tags			example
+//	@Tags			User
 //	@Accept			json
 //	@Produce		json
 //	@Success		200	{string}	getuser

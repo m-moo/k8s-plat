@@ -1,5 +1,10 @@
+basePath: /api
+host: localhost:5000
 info:
   contact: {}
+  description: This is a sample swagger doc for test
+  title: Swagger Example API
+  version: "1.0"
 paths:
   /user:
     get:
@@ -15,5 +20,8 @@ paths:
             type: string
       summary: get user example
       tags:
-      - example
+      - User
+securityDefinitions:
+  BasicAuth:
+    type: basic
 swagger: "2.0"
