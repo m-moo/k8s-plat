@@ -1,6 +1,9 @@
 package main
 
-import router "github.com/m-moo/k8s-plat/router"
+import (
+	"github.com/m-moo/k8s-plat/datastore"
+	router "github.com/m-moo/k8s-plat/router"
+)
 
 //	@title			Swagger Example API
 //	@version		1.0
@@ -11,5 +14,6 @@ import router "github.com/m-moo/k8s-plat/router"
 
 //	@securityDefinitions.basic	BasicAuth
 func main() {
+	datastore.Init()
 	router.Init()
 }
