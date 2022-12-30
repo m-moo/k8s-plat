@@ -15,5 +15,7 @@ import (
 //	@securityDefinitions.basic	BasicAuth
 func main() {
 	datastore.Init()
-	router.Init()
+
+	r := router.Init()
+	r.Run(":5000")
 }

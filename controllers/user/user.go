@@ -1,10 +1,10 @@
-package controllers
+package user
 
 import "github.com/gin-gonic/gin"
 
 //	@BasePath	/api
 
-// PingExample godoc
+// user handler example
 //	@Summary	get user example
 //	@Schemes
 //	@Description	get user
@@ -13,6 +13,6 @@ import "github.com/gin-gonic/gin"
 //	@Produce		json
 //	@Success		200	{string}	getuser
 //	@Router			/user [get]
-func GetUser(c *gin.Context) {
+func GetUserHandler(c *gin.Context) {
 	println("getuser")
 }
