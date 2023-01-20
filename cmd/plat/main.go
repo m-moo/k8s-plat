@@ -1,6 +1,9 @@
 package main
 
 import (
+	"log"
+
+	"github.com/joho/godotenv"
 	"github.com/m-moo/k8s-plat/datastore"
 	router "github.com/m-moo/k8s-plat/router"
 )
@@ -14,6 +17,11 @@ import (
 
 //	@securityDefinitions.basic	BasicAuth
 func main() {
+	err := godotenv.Load()
+	if err != nil {
+		log.Fatal("Error loading .env file")
+	}
+
 	datastore.Init()
 
 	r := router.Init()

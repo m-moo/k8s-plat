@@ -2,6 +2,7 @@ package datastore
 
 import (
 	"log"
+	"os"
 
 	"github.com/m-moo/k8s-plat/models"
 	"gorm.io/driver/postgres"
@@ -11,8 +12,14 @@ import (
 
 // use only postgres
 func Init() *gorm.DB {
+	host := os.Getenv("DB_HOST")
+	user := os.Getenv("DB_USER")
+	pwd := os.Getenv("DB_PWD")
+	dbName := os.Getenv("DB_NAME")
+	port := os.Getenv("DB_PORT")
 
-	dbURL := "host=cks0504.iptime.org user=postgres password=postgres#0524 dbname=kube-plat port=5432"
+	dbURL := "host=" + host + " user=" + user +
+		" password=" + pwd + " dbname=" + dbName + " port=" + port
 	db, err := gorm.Open(postgres.Open(dbURL), &gorm.Config{
 		NamingStrategy: schema.NamingStrategy{
 			SingularTable: true,

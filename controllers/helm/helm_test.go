@@ -1,6 +1,7 @@
 package helm
 
 import (
+	"encoding/json"
 	"net/http/httptest"
 	"testing"
 
@@ -14,4 +15,10 @@ func TestGetChartsHandler(t *testing.T) {
 	GetChartsHandler(c)
 
 	assert.Equal(t, 200, w.Code)
+
+	var got []chartList
+	err := json.NewDecoder(w.Body).Decode(&got)
+	if err != nil {
+		t.Fatal(err)
+	}
 }
